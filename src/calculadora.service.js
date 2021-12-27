@@ -19,6 +19,8 @@ function CalculadoraService() {
       case MULTIPLICACAO:
         resultado = numero1 * numero2;
         break;
+      default:
+        resultado = 0;
     }
 
     return resultado;

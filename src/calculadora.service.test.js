@@ -21,4 +21,8 @@ describe('Teste do CalculadoraService', () => {
     let multiplicacao = calcular(4, 1, MULTIPLICACAO);
     expect(multiplicacao).toEqual(4);
   });
+  it('deve retornar 0 para operação inválida', () => {
+    let operacaoInvalida = calcular(1, 4, '%');
+    expect(operacaoInvalida).toEqual(0);
+  });
 });
