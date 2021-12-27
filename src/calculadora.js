@@ -106,7 +106,7 @@ function Calculadora() {
         </Row>
         <Row>
           <Col>
-            <Button variant="light" onClick={() => adicionarNumero('7')}>
+            <Button variant="light" onClick={() => adicionarNumero('0')}>
               0
             </Button>
           </Col>
