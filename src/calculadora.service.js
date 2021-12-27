@@ -26,7 +26,26 @@ function CalculadoraService() {
     return resultado;
   }
 
-  return [calcular, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO];
+  function concatenarNumero(numAtual, numConcat) {
+    //se conter apenas "0" ou null, reinicia o valor
+    if (numAtual === '0' || numAtual === null) {
+      numAtual = '';
+    }
+
+    //se primeiro digito for ".", concatena antes do ponto
+    if (numConcat === '.' && numAtual === '') {
+      return '0.';
+    }
+
+    //caso "." digitado e já contenha o ponto, apenas retornar
+    if (numConcat === '.' && numAtual.indexOf('.') > -1) {
+      return numAtual;
+    }
+
+    return numAtual + numConcat;
+  }
+
+  return [calcular, concatenarNumero, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO];
 }
 
 export default CalculadoraService;
