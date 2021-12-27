@@ -1,7 +1,18 @@
 import './calculadora.css';
+import { useState } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 
 function Calculadora() {
+  const [txtNumeros, setTxtNumeros] = useState('0');
+
+  function adicionarNumero(numero) {
+    setTxtNumeros(txtNumeros + numero);
+  }
+
+  function definirOperacao(op) {
+    setTxtNumeros(op);
+  }
+
   return (
     <header
       style={{
@@ -21,65 +32,98 @@ function Calculadora() {
             <Form.Control
               type="text"
               name="txtNumeros"
-              class="text-right"
+              className="text-right"
               readOnly="readonly"
+              value={txtNumeros}
             />
           </Col>
         </Row>
         <Row>
           <Col>
-            <Button variant="light">7</Button>
+            <Button variant="light" onClick={() => adicionarNumero('7')}>
+              7
+            </Button>
           </Col>
           <Col>
-            <Button variant="light">8</Button>
+            <Button variant="light" onClick={() => adicionarNumero('8')}>
+              8
+            </Button>
           </Col>
           <Col>
-            <Button variant="light">9</Button>
+            <Button variant="light" onClick={() => adicionarNumero('9')}>
+              9
+            </Button>
           </Col>
           <Col>
-            <Button variant="warning">/</Button>
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Button variant="light">4</Button>
-          </Col>
-          <Col>
-            <Button variant="light">5</Button>
-          </Col>
-          <Col>
-            <Button variant="light">6</Button>
-          </Col>
-          <Col>
-            <Button variant="warning">*</Button>
+            <Button variant="warning" onClick={() => definirOperacao('/')}>
+              /
+            </Button>
           </Col>
         </Row>
         <Row>
           <Col>
-            <Button variant="light">1</Button>
+            <Button variant="light" onClick={() => adicionarNumero('4')}>
+              4
+            </Button>
           </Col>
           <Col>
-            <Button variant="light">2</Button>
+            <Button variant="light" onClick={() => adicionarNumero('5')}>
+              5
+            </Button>
           </Col>
           <Col>
-            <Button variant="light">3</Button>
+            <Button variant="light" onClick={() => adicionarNumero('6')}>
+              6
+            </Button>
           </Col>
           <Col>
-            <Button variant="warning">-</Button>
+            <Button variant="warning" onClick={() => definirOperacao('*')}>
+              *
+            </Button>
           </Col>
         </Row>
         <Row>
           <Col>
-            <Button variant="light">0</Button>
+            <Button variant="light" onClick={() => adicionarNumero('1')}>
+              1
+            </Button>
           </Col>
           <Col>
-            <Button variant="light">.</Button>
+            <Button variant="light" onClick={() => adicionarNumero('2')}>
+              2
+            </Button>
           </Col>
           <Col>
-            <Button variant="success">=</Button>
+            <Button variant="light" onClick={() => adicionarNumero('3')}>
+              3
+            </Button>
           </Col>
           <Col>
-            <Button variant="warning">+</Button>
+            <Button variant="warning" onClick={() => definirOperacao('-')}>
+              -
+            </Button>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Button variant="light" onClick={() => adicionarNumero('7')}>
+              0
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="light" onClick={() => adicionarNumero('.')}>
+              .
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="success" onClick={() => definirOperacao('=')}>
+              =
+            </Button>
+          </Col>
+          <Col>
+            <Button variant="warning" onClick={() => definirOperacao('+')}>
+              +
+            </Button>
           </Col>
         </Row>
       </Container>
