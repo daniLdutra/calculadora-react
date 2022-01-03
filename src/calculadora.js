@@ -25,7 +25,23 @@ function Calculadora() {
   }
 
   function definirOperacao(op) {
-    setTxtNumeros(op);
+    // definir operacao caso ela não exista
+    if (operacao === null) {
+      setOperacao(op);
+      return;
+    }
+    //caso a operacao estiver definida e numero 2 selecionado, realiza o calculo da operacao
+    if (numero2 !== null) {
+      const resultado = calcular(
+        parseFloat(numero1),
+        parseFloat(numero2),
+        operacao
+      );
+      setOperacao(op);
+      setNumero1(resultado.toString());
+      setNumero2(null);
+      setTxtNumeros(resultado.toString());
+    }
   }
 
   return (
