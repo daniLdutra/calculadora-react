@@ -44,6 +44,18 @@ function Calculadora() {
     }
   }
 
+  function acaoCalcular() {
+    if (numero2 === null) {
+      return;
+    }
+    const resultado = calcular(
+      parseFloat(numero1),
+      parseFloat(numero2),
+      operacao
+    );
+    setTxtNumeros(resultado);
+  }
+
   return (
     <header
       style={{
@@ -147,7 +159,7 @@ function Calculadora() {
             </Button>
           </Col>
           <Col>
-            <Button variant="success" onClick={() => definirOperacao('=')}>
+            <Button variant="success" onClick={acaoCalcular}>
               =
             </Button>
           </Col>
