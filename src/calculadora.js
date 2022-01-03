@@ -1,12 +1,27 @@
 import './calculadora.css';
 import { useState } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
+import CalculadoraService from './calculadora.service';
 
 function Calculadora() {
+  const [calcular, concatenarNumero, SOMA, SUBTRACAO, DIVISAO, MULTIPLICACAO] =
+    CalculadoraService();
+
   const [txtNumeros, setTxtNumeros] = useState('0');
+  const [numero1, setNumero1] = useState('0');
+  const [numero2, setNumero2] = useState(null);
+  const [operacao, setOperacao] = useState(null);
 
   function adicionarNumero(numero) {
-    setTxtNumeros(txtNumeros + numero);
+    let resultado;
+    if (operacao === null) {
+      resultado = concatenarNumero(numero1, numero);
+      setNumero1(resultado);
+    } else {
+      resultado = concatenarNumero(numero2, numero);
+      setNumero2(resultado);
+    }
+    setTxtNumeros(resultado);
   }
 
   function definirOperacao(op) {
