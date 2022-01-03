@@ -59,10 +59,8 @@ describe('Calculadora', () => {
     const { getByTestId, getByText } = render(<Calculadora />);
     fireEvent.click(getByText('2'));
     fireEvent.click(getByText('.'));
-
     fireEvent.click(getByText('5'));
     fireEvent.click(getByText('+'));
-
     fireEvent.click(getByText('3'));
     fireEvent.click(getByText('='));
     expect(getByTestId('txtNumeros')).toHaveValue('5.5');
